@@ -105,7 +105,8 @@ export default function App() {
 
   function playAudio(id) {
     if (isPower) {
-      setName(clips[id].name1)
+      const name = isBank ? clips[id].name2 : clips[id].name1
+      setName(name)
       const audioElement = document.getElementById(id);
       if (audioElement) {
         audioElement.currentTime = 0;
