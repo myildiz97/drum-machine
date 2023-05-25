@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #264653;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* drum-section */
+
+#drum-machine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  gap: 20px;
+  padding: 10px;
+  border: 2px solid #e76f51;
+  border-radius: 10px;
+}
+
+.drum-pads {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 10px;
+  width: 300px;
+  height: 300px;
+}
+
+.drum-pad {
+  background-color: #e76f51;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.drum-pad:hover {
+  background-color: #e9c46a;
+  box-shadow: 0 3px 3px #e9c46a, 0 -3px 3px #e9c46a;
+}
+
+.drum-pad audio {
+  display: none;
+}
+
+/* setting-section */
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+}
+
+.settings h3 {
+  margin: 5px;
+}
+
+#display {
+  background-color: #e76f51;
+  border-radius: 3px;
+  width: 120px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+/* toggle switch */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 30px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2a9d8f;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2a9d8f;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@media screen and (max-height: 400px) and (max-width: 500px) {
+  #drum-machine {
+    flex-direction: column;
+    margin-top: 150px;
+    padding: 0;
+    width: 400px;
+  }
+}
+
+@media screen and (max-height: 350px) {
+  #drum-machine {
+    flex-direction: column;
+    margin-top: 200px;
+    margin-bottom: 100px;
+  }
+}
